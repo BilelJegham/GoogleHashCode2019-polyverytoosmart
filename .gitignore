@@ -1,0 +1,4 @@
+*.pyc
+.idea/*
+polyhvenv/*
+*.DS_Store

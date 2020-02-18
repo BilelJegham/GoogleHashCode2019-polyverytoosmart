@@ -1,0 +1,47 @@
+before_script:
+  - apt-get -qq update && apt-get -qq install -y python3
+  - apt-get -qq install -y python-pip
+  - pip install flake8 pep8-naming
+  - apt-get -qq update
+
+
+stages:
+  - test
+  - build
+
+pep-8:
+  stage: test
+  script:
+  - flake8 src/python/**.py
+
+charleston_road:
+  stage: build
+  script:
+    - python3 src/python/main.py  src/res/in/charleston_road
+  artifacts:
+    paths:
+    - src/res/out/charleston_road.out
+
+rue_de_londres:
+  stage: build
+  script:
+    - python3 src/python/main.py  src/res/in/rue_de_londres
+  artifacts:
+    paths:
+    - src/res/out/rue_de_londres.out
+
+opera:
+  stage: build
+  script:
+    - python3 src/python/main.py  src/res/in/opera
+  artifacts:
+    paths:
+    - src/res/out/opera.out
+
+lets_go_higher:
+  stage: build
+  script:
+    - python3 src/python/main.py  src/res/in/lets_go_higher
+  artifacts:
+    paths:
+    - src/res/out/lets_go_higher.out
