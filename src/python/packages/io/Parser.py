@@ -2,8 +2,7 @@
 
 from collections import namedtuple
 
-from packages.structure.Cell import Cell
-from packages.structure.Map import Map
+from packages.structure.Library import Library
 from packages.structure.Problem import Problem
 from packages.utils.log import log
 
@@ -23,32 +22,21 @@ class Parser:
         with open(source_file) as f:
 
             # informations d'en-tête
+            nbBooks, nbLib, day = map(int, f.readline().split())
+            booksScore = f.readline().split()
+            allBooks = dict()
+            for i in range(nbBooks):
+                allBooks[i] = int(booksScore[i])
 
-            r, c, r_range = map(int, f.readline().split())
-            bb_cost, r_cost, budget = map(int, f.readline().split())
-            Pos = namedtuple('Pos', 'x y')
-            bb_pos = Pos(*map(int, f.readline().split()))
+            libs = []
+            for i in range(nbLib):
+                nbBooks, nbLib, day = map(int, f.readline().split())
+                booksId = map(int, f.readline().split())
 
-            # tuiles
-            cells = []
-            for l in f:
-                row = []
-                for c in l:
-                    to_append = ''
-                    if c == Cell.HOW_VOID_IS_GIVEN:
-                        to_append = Cell(Cell.VOID)
-                    elif c == Cell.HOW_TARGET_IS_GIVEN:
-                        to_append = Cell(Cell.TARGET)
-                    elif c == Cell.HOW_WALL_IS_GIVEN:
-                        to_append = Cell(Cell.WALL)
-                    else:
-                        to_append = Cell(-1)
 
-                    row.append(to_append)
-                cells.append(row)
-            # création du problème
-            the_map = Map(cells, bb_pos)
-            the_map.cells[bb_pos.x][bb_pos.y].has_backbone = True
-            problem = Problem(r_range, bb_cost, r_cost, budget, the_map)
+
+                libs.append(Library(list(booksId), nbLib, day))
+
+            problem = Problem(allBooks, day, libs)
 
         return problem
