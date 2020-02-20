@@ -36,6 +36,8 @@ class Parser:
                 for b in booksId:
                    s += allBooks[b]
 
+                booksId = sorted(booksId, key=lambda x: allBooks[x], reverse=True)
+
                 ratio = ((s/nbBooks) * dayl) / day
                 libs.append(Library(booksId, nbLib, dayl, ratio))
 
