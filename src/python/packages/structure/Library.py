@@ -3,7 +3,8 @@
 class Library:
 
 
-    def __init__(self, bs, time, skipCapacity, r=0 ):
+    def __init__(self,id, bs, time, skipCapacity, r=0 ):
+        self.id = id
         self.booksId = bs
         self.timeSignup = time
         self.skipCapacity = skipCapacity
@@ -16,3 +17,15 @@ class Library:
         representation += '\n'+str(self.ratio)
 
         return representation
+
+    def resetRatio(self, allBooks,dayMax, dayActuel):
+        s,x = 0,0
+        for j in range((dayMax-(self.timeSignup+dayActuel))*self.skipCapacity):
+            if x < len(self.booksId):
+                s += allBooks[self.booksId[x]]
+                x+=1
+            else:
+                self.ratio = s
+                return
+
+        self.ratio = s
