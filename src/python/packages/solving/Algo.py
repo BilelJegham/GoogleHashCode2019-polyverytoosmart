@@ -12,6 +12,7 @@ class Algo:
         tempsRestantGlobal = self.day
 
         # 1- Trier les librairies par score
+        orderedLibrairies = sorted(self.libraries, key=lambda x: x.ratio, reverse=True)
 
         # 2- Supprimer les librairies inutiles
 
@@ -20,4 +21,4 @@ class Algo:
             # Inscrire la premiere
             
 
-        print(self.allBooks)
+        # print(self.allBooks)
