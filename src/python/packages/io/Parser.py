@@ -34,7 +34,7 @@ class Parser:
                 booksId = list(map(int, f.readline().split()))
 
                 booksId = sorted(booksId, key=lambda x: allBooks[x], reverse=True)
-                l = Library(booksId, nbLib, dayl, 0)
+                l = Library(i,booksId, nbLib, dayl, 0)
                 l.resetRatio(allBooks,day, 0)
                 libs.append(l)
 
