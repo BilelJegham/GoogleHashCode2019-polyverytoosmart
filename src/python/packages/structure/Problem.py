@@ -21,6 +21,12 @@ class Problem:
         self.day = day
         self.libraries = libs
 
+    def resetRatio(self):
+        for l in self.libraries:
+            l.resetRatio()
+        
+        self.libraries = sorted(self.libraries, key=lambda x: x.ratio, reverse=True)
+
     def __str__(self):
         representation = str(self.allBooks)
         representation += "\n"+str(self.day)

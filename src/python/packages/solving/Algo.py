@@ -6,6 +6,12 @@ class Algo:
         self.day = problem.day
         self.libraries = problem.libraries
 
+    def resetRatio(self):
+        for l in self.libraries:
+            l.resetRatio()
+        self.libraries = sorted(self.libraries, key=lambda x: x.ratio, reverse=True)
+
+
     def solve(self):
 
         # Initialisation
@@ -66,6 +72,7 @@ class Algo:
                 newListOfBook = librairie.booksId
                 nbLivres = len(librairie.booksId)
             enregistrements.append([librairie.id, nbLivres, newListOfBook])
+            
             
             # Inscrire la premiere
         print(enregistrements)
