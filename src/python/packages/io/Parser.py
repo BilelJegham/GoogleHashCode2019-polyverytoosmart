@@ -30,15 +30,14 @@ class Parser:
 
             libs = []
             for i in range(nbLib):
-                nbBooks, nbLib, skipCapacity = map(int, f.readline().split())
-                booksId = map(int, f.readline().split())
+                nbBooks, nbLib, dayl = map(int, f.readline().split())
+                booksId = list(map(int, f.readline().split()))
                 s=0
                 for b in booksId:
                    s += allBooks[b]
 
-                ratio = ((s/nbBooks) * skipCapacity) / day
-
-                libs.append(Library(list(booksId), nbLib, skipCapacity, ratio))
+                ratio = ((s/nbBooks) * dayl) / day
+                libs.append(Library(booksId, nbLib, dayl, ratio))
 
             problem = Problem(allBooks, day, libs)
 

@@ -2,5 +2,10 @@
 
 
 class Algo:
+
+    def __init__(self, problem):
+        self.day = problem.day
+       
+
     def solve(self):
-        raise NotImplementedError("Implemented this in other class")
+        print(self.day)
