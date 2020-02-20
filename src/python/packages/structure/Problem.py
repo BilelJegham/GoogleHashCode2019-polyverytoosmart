@@ -36,8 +36,7 @@ class Problem:
         :rtype: Solution
         """
         a = Algo(self)
-
-        a = a.solve()
+        li = a.solve()
         
 
-        return 0
+        return Solution(li)

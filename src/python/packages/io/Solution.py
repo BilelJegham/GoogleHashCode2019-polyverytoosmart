@@ -6,27 +6,12 @@ class Solution:
     """
         Cette classe permet de représenter la solution au probleme de palcement
     """
-    def __init__(self,routers,backbones):
+    def __init__(self,l):
         """
             Constructeur
-            :param routers: liste des positions des routeurs
-            :param backbones: liste des positions des backbones
         """
-        self.listR = routers
-        self.listBB = backbones
+        self.list = l
 
-    @staticmethod
-    def calculate_cost(nb_bb, nb_routers, price_bb, price_router):
-        """
-            Calcul le cout de installation
-            :param nb_bb: nombre de blackbone nom du fichier
-            :param routers: nombre de routeur
-            :param price_bb: Prix du blackbone
-            :param price_router: Prix du routeur
-            :return: cout d'installation
-        """
-        total_cost = nb_bb * price_bb + nb_routers * price_router
-        return total_cost
 
     def write(self, file):
         """
@@ -35,20 +20,14 @@ class Solution:
         """
         log('Ecriture de la solution dans : '+file)
         # map = self.map
-        listBB = self.listBB
-        listR = self.listR
+        l = self.list
         fichier = open(file, "w")
         #Ecriture position des Blackbone
-        log('    - Ecriture de la position des '+str(len(listBB))+' backbones')
-        fichier.write(str(len(listBB))+"\n")
-        for posBB in listBB:
-            fichier.write(str(posBB[0])+" "+str(posBB[1])+"\n")
+        fichier.write(str(len(l))+"\n")
+        for lib in l:
+            fichier.write(str(lib[0])+" "+str(lib[1])+"\n")
+            fichier.write(" ".join(str(x) for x in lib[2]) +"\n")
 
-        #Ecriture position des Routeurs
-        log('    - Ecriture de la position des '+str(len(listR))+' routeurs')
-        fichier.write(str(len(listR))+"\n")
-        for r in listR:
-            fichier.write(str(r[0])+" "+str(r[1])+"\n")
         log("Fin de l'Ecriture")
 
 

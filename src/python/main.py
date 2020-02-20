@@ -40,7 +40,8 @@ for filepath in queue:
     problem = Parser.load(filepath)
     
     solution = problem.solve()
-    #solution.write(output_file)
+    
+    solution.write(output_file)
 
     log_task('{} level solving'.format(name), 'end')
 
