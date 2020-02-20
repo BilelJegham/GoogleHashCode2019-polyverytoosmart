@@ -42,13 +42,13 @@ class Algo:
         for librairie in orderedLibrairies:
             tempsRestant = tempsRestant - librairie.timeSignup
             nbLivres = tempsRestant*librairie.skipCapacity
-            if (nbLivres<len(librairie.booksId))
-                librairie.booksId[:nbLivres]
+            if (nbLivres<len(librairie.booksId)):
+                newListOfBook = librairie.booksId[:nbLivres]
             else :
+                newListOfBook = librairie.booksId
                 nbLivres = len(librairie.booksId)
-
-            enregistrements.append([librairie.id, nbLivres, booksId ])
+            enregistrements.append([librairie.id, nbLivres, newListOfBook])
             
             # Inscrire la premiere
-
+        print(enregistrements)
         # print(self.allBooks)

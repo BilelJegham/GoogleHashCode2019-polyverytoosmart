@@ -3,8 +3,8 @@
 class Library:
 
 
-    def __init__(self,id, bs, time, skipCapacity, r=0 ):
-        self.id = id
+    def __init__(self,idL, bs, time, skipCapacity, r=0 ):
+        self.id = idL
         self.booksId = bs
         self.timeSignup = time
         self.skipCapacity = skipCapacity
