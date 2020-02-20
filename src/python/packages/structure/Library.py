@@ -16,3 +16,15 @@ class Library:
         representation += '\n'+str(self.ratio)
 
         return representation
+
+    def resetRatio(self, allBooks,dayMax, dayActuel):
+        s,x = 0,0
+        for j in range((dayMax-(self.timeSignup+dayActuel))*self.skipCapacity):
+            if x < len(self.booksId):
+                s += allBooks[self.booksId[x]]
+                x+=1
+            else:
+                self.ratio = s
+                return
+
+        self.ratio = s
