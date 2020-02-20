@@ -50,5 +50,5 @@ class Algo:
             enregistrements.append([librairie.id, nbLivres, newListOfBook])
             
             # Inscrire la premiere
-        print(enregistrements)
+        return enregistrements
         # print(self.allBooks)
