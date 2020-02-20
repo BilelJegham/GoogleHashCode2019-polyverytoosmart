@@ -30,12 +30,12 @@ class Parser:
 
             libs = []
             for i in range(nbLib):
-                nbBooks, nbLib, day = map(int, f.readline().split())
+                nbBooks, nbLib, dayl = map(int, f.readline().split())
                 booksId = map(int, f.readline().split())
 
 
 
-                libs.append(Library(list(booksId), nbLib, day))
+                libs.append(Library(list(booksId), nbLib, dayl))
 
             problem = Problem(allBooks, day, libs)
 
