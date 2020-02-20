@@ -9,10 +9,10 @@ class Algo:
     def solve(self):
 
         # Initialisation
-        tempsRestant = self.day
+        tempsRestantGlobal = self.day
 
         # 1- Trier les librairies par score
-        
+
         # 2- Supprimer les librairies inutiles
 
         # 3- Boucle
