@@ -31,11 +31,13 @@ class Parser:
             libs = []
             for i in range(nbLib):
                 nbBooks, nbLib, dayl = map(int, f.readline().split())
-                booksId = map(int, f.readline().split())
+                booksId = list(map(int, f.readline().split()))
+                s=0
+                for b in booksId:
+                   s += allBooks[b]
 
-
-
-                libs.append(Library(list(booksId), nbLib, dayl))
+                ratio = ((s/nbBooks) * dayl) / day
+                libs.append(Library(booksId, nbLib, dayl, ratio))
 
             problem = Problem(allBooks, day, libs)
 
