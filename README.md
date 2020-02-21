@@ -1,4 +1,5 @@
 # GoogleHashCode2018
+> Team : PolyverytooSmart
 ```bash
 # Exécution du code
  python src/python/main.py # chacune des cartes par défaut
